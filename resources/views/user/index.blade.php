@@ -6,11 +6,11 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Articles
+                        Users
                     </div>
-                    <div class="card-header">
-                        <a href="{{route('articles.create')}}" class="btn btn-primary">Create Article</a>
-                    </div>
+                    {{-- <div class="card-header">
+                        <a href="{{route('user.create')}}" class="btn btn-primary">Create Article</a>
+                    </div> --}}
                     <div class="card-body">
                         <table class="table">
                             <tr>
@@ -19,17 +19,17 @@
                                 <th>Mutators</th>
                                 <th>Created By</th>
                             </tr>
-                            @foreach ($articles as $article)
+                            @foreach ($users as $user)
                                 <tr>
-                                    <td>{{$article->title}}</td>
-                                    <td>{{$article->description}}</td> 
-                                    <td>{{$article->titledescription}}</td>
-                                    <td>{{$article->user->name}}</td>
+                                    <td>{{$user->title}}</td>
+                                    <td>{{$user->description}}</td> 
+                                    <td>{{$user->titledescription}}</td>
+                                    <td>{{$user}}</td>
                                 </tr>
                             @endforeach
                         </table>
                         <div>
-                            {{$articles->links()}}
+                            {{$users->links()}}
                         </div>
                     </div>
                 </div>

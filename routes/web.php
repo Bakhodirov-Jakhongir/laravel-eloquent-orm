@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -20,6 +23,14 @@ Route::get('/', function () {
 
 Route::resource('articles', ArticleController::class)->middleware('auth');
 
+Route::resource('user', UserController::class);
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/get', function () {
+    return response()->json([
+        'data' => User::all()
+    ]);
+});

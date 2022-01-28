@@ -16,4 +16,9 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getTitleDescriptionAttribute($value)
+    {
+        return $this->title . $this->description;
+    }
 }
