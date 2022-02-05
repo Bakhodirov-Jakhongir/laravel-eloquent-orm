@@ -52,7 +52,6 @@ class ArticleController extends Controller
 
         //create article and save to database
         $article = Article::firstOrCreate(['title' => $request->title, 'user_id' => auth()->id()], ['user_id' => auth()->id(), 'title' => $request->title, 'description' => $request->description]);
-
         return redirect()->route('articles.index');
 
         //create article and do not save it to object
