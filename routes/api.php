@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('v1/users', function () {
+    $users = User::all();
+    foreach ($users as $user) {
+        echo $user->article[0]->title;
+    }
+    return response()->json([
+        'users' => $users
+    ]);
 });

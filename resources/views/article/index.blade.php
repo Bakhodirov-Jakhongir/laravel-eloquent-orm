@@ -24,7 +24,7 @@
                                     <td>{{$article->title}}</td>
                                     <td>{{$article->description}}</td> 
                                     <td>{{$article->titledescription}}</td>
-                                    <td>{{$article->user->name}}</td>
+                                    <td>{{$article->user->username}}</td>
                                 </tr>
                             @endforeach
                         </table>

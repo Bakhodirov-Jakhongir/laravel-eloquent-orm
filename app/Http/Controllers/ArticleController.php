@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     /**
      * Display a listing of the resource.
      *
@@ -50,8 +55,9 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index');
 
-        //create article and save it to object
-        $articleDoNotSavedDB = Article::firstOrNew(['title' => $request->title], ['description' => $request->description]);
+        //create article and do not save it to object
+        // $articleDoNotSavedDB = Article::firstOrNew(['title' => $request->title], ['title' => $request->title, 'description' => $request->description, 'user_id' => auth()->id()]);
+        // $articleDoNotSavedDB->save();
         //$articleDoNotSavedDB->any_field = $setValue
         // and save to db
         // $articleDoNotSavedDB->save();

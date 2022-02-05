@@ -10,7 +10,17 @@ class Article extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
+
+    //protected $table = 'user_articles';
+    //protected $primaryKey = 'article_id';
+    //public $incrementing = false;
+
+    // public $timestamps = false;
+    // public const CREATED_AT = 'created';
+    // public const UPDATED_AT = 'updated';
+
+    // protected $dates = ['activated_at', 'updated_at', 'created_at'];
 
     public function user()
     {
@@ -19,6 +29,6 @@ class Article extends Model
 
     public function getTitleDescriptionAttribute($value)
     {
-        return $this->title . $this->description;
+        return $this->title  . ' ' . $this->description;
     }
 }
